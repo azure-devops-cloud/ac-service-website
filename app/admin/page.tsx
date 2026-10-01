@@ -28,9 +28,10 @@ const statusLabel: Record<Booking['status'], string> = {
   cancelled: 'Cancelled',
 };
 
+const supabase = createClient();
+
 export default function AdminDashboard() {
   const router = useRouter();
-  const supabase = createClient();
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [loading, setLoading] = useState(true);
   const [updating, setUpdating] = useState('');

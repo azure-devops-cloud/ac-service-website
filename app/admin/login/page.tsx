@@ -5,9 +5,10 @@ import { LockKeyhole, LogIn, ShieldCheck } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { createClient } from '../../lib/supabase/client';
 
+const supabase = createClient();
+
 export default function AdminLoginPage() {
   const router = useRouter();
-  const supabase = createClient();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);

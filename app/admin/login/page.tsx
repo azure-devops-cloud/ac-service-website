@@ -3,7 +3,7 @@
 import { FormEvent, useEffect, useState } from 'react';
 import { LockKeyhole, LogIn, ShieldCheck } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { createClient } from '../../lib/supabase/client';
+import { createClient } from '../../../lib/supabase/client';
 
 const supabase = createClient();
 
@@ -18,7 +18,7 @@ export default function AdminLoginPage() {
     supabase.auth.getSession().then(({ data }) => {
       if (data.session) router.replace('/admin');
     });
-  }, [router, supabase]);
+  }, [router]);
 
   async function handleLogin(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
